@@ -59,7 +59,7 @@
             color: #555;
             font-size: 15px;
             line-height: 1.5;
-            display: none; /* Mặc định ẩn, hiện khi check đáp án hoặc toggle */
+            display: none;
         }
         /* Hiển thị lý giải khi nhấn nút Hiện đáp án tất cả */
         .show-all .explanation-box { display: block; }
@@ -103,6 +103,16 @@
     const keys = ["A", "B", "C", "D"];
     let isShowingAll = false;
 
+    // Gán số thứ tự gốc vào từng câu hỏi một lần duy nhất khi load
+    window.onload = () => {
+        if (typeof questions !== 'undefined') {
+            questions.forEach((q, i) => { q._index = i + 1; });
+            render(questions);
+        } else {
+            container.innerHTML = "<p style='color:red; text-align:center; padding:20px;'>Lỗi: Không tìm thấy dữ liệu trong file questions.js!</p>";
+        }
+    };
+
     function toggleAnswers() {
         isShowingAll = !isShowingAll;
         if (isShowingAll) {
@@ -118,7 +128,7 @@
 
     function handleOptionClick(element, selectedLetter, correctLetter) {
         const parentCard = element.closest('.question-card');
-        parentCard.classList.add('answered'); // Đánh dấu đã trả lời để hiện lý giải
+        parentCard.classList.add('answered');
         
         parentCard.querySelectorAll('.option').forEach(opt => {
             opt.classList.remove('selected-correct', 'selected-wrong');
@@ -139,9 +149,8 @@
         countDisplay.innerText = `Tìm thấy: ${data.length} câu`;
         
         data.forEach((item) => {
-            const originalIndex = questions.indexOf(item) + 1;
             const card = document.createElement('div');
-            card.className = `question-card`;
+            card.className = 'question-card';
             
             let optionsHTML = '';
             item.options.forEach((opt, i) => {
@@ -157,13 +166,15 @@
                 `;
             });
 
-            // Phần nội dung thẻ câu hỏi bao gồm Lý giải tách riêng
+            // ✅ Dùng đúng field "explain" (không phải "explanation")
+            const explainText = item.explain || 'Chưa có lý giải chi tiết.';
+
             card.innerHTML = `
-                <span class="q-text">Câu ${originalIndex}: ${item.question}</span>
+                <span class="q-text">Câu ${item._index}: ${item.question}</span>
                 <div class="options-group">${optionsHTML}</div>
                 <div class="explanation-box">
-                    <i><strong>Đáp án: ${item.correct.trim()}</strong></i><br>
-                    <i>Lý giải: ${item.explanation || 'Chưa có lý giải chi tiết.'}</i>
+                    <i><strong>Đáp án: ${item.correct.trim()}</strong></i><br><br>
+                    <i>${explainText}</i>
                 </div>
             `;
             container.appendChild(card);
@@ -172,21 +183,14 @@
 
     function search() {
         const term = document.getElementById('searchInput').value.toLowerCase();
+        // ✅ Dùng đúng field "explain" trong search
         const filtered = questions.filter(q => 
             q.question.toLowerCase().includes(term) || 
             q.options.some(opt => opt.toLowerCase().includes(term)) ||
-            (q.explanation && q.explanation.toLowerCase().includes(term))
+            (q.explain && q.explain.toLowerCase().includes(term))
         );
         render(filtered);
     }
-
-    window.onload = () => {
-        if (typeof questions !== 'undefined') {
-            render(questions);
-        } else {
-            container.innerHTML = "<p style='color:red; text-align:center; padding:20px;'>Lỗi: Không tìm thấy dữ liệu trong file questions.js!</p>";
-        }
-    };
 </script>
 
 </body>
