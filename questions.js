@@ -3688,9 +3688,10 @@ const questions = [
       "Phải bao gồm Tờ khai thuế (thông báo nộp tiền của cơ quan thuế đối với hộ kinh doanh) và giấy nộp tiền có xác nhận của cơ quan thuế được in từ Hệ thống thuế điện tử",
       "Phải bao gồm Tờ khai thuế (thông báo nộp tiền của cơ quan thuế đối với hộ kinh doanh) và xác nhận của cơ quan thuế về việc thực hiện nghĩa vụ thuế",
       "Phải bao gồm Tờ khai thuế (thông báo nộp tiền của cơ quan thuế đối với hộ kinh doanh), giấy nộp tiền có xác nhận của cơ quan thuế được in từ Hệ thống thuế điện tử và xác nhận của cơ quan thuế về việc thực hiện nghĩa vụ thuế.",
-      "Phương án A hoặc B đúng Đáp án D Lý giải: Căn cứ vào Ghi chú số (3) trong Bảng tiêu chuẩn đánh giá về năng lực và kinh nghiệm tại các Mẫu E-HSMT (ví dụ: Mẫu số 3A, 3B cho xây lắp, Mẫu số 4A, 4B cho hàng hóa...) ban hành kèm theo Thông tư 79/2025/TT-BTC: Trường hợp Hệ thống chưa trích xuất tự động thông tin về nghĩa vụ nộp thuế, nhà thầu nộp tài liệu theo một trong hai cách sau:  1. Tờ khai thuế (hoặc thông báo nộp tiền đối với hộ kinh doanh) và Giấy nộp tiền có xác nhận của cơ quan thuế được in từ Hệ thống thuế điện tử,,. 2. Hoặc: Tờ khai thuế (hoặc thông báo nộp tiền đối với hộ kinh doanh) và xác nhận của cơ quan thuế về việc thực hiện nghĩa vụ thuế,,. Do quy định cho phép chọn một trong hai cách trên, nên phương án D (A hoặc B đúng) là chính xác."
+      "Phương án A hoặc B đúng"
     ],
-    "correct": "D"
+    "correct": "D",
+    "explain": "Lý giải: Căn cứ vào Ghi chú số (3) trong Bảng tiêu chuẩn đánh giá về năng lực và kinh nghiệm tại các Mẫu E-HSMT (ví dụ: Mẫu số 3A, 3B cho xây lắp, Mẫu số 4A, 4B cho hàng hóa...) ban hành kèm theo Thông tư 79/2025/TT-BTC: Trường hợp Hệ thống chưa trích xuất tự động thông tin về nghĩa vụ nộp thuế, nhà thầu nộp tài liệu theo một trong hai cách sau:  1. Tờ khai thuế (hoặc thông báo nộp tiền đối với hộ kinh doanh) và Giấy nộp tiền có xác nhận của cơ quan thuế được in từ Hệ thống thuế điện tử,,. 2. Hoặc: Tờ khai thuế (hoặc thông báo nộp tiền đối với hộ kinh doanh) và xác nhận của cơ quan thuế về việc thực hiện nghĩa vụ thuế,,. Do quy định cho phép chọn một trong hai cách trên, nên phương án D (A hoặc B đúng) là chính xác."
   },
   {
     "question": "Việc phê duyệt dự toán đối với phần công việc tùy chọn mua thêm được áp dụng tại thời điểm nào?",
